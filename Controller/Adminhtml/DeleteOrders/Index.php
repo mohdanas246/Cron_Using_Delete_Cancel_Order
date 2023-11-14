@@ -7,7 +7,6 @@ use Magento\Framework\Registry;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\State;
-
 class Index
 {
     protected OrderRepositoryInterface $orderRepository;
@@ -15,15 +14,12 @@ class Index
     protected LoggerInterface $logger;
     protected State $state;
     private Registry $registry;
-
-
     public function __construct(
         OrderRepositoryInterface $orderRepository,
         SearchCriteriaBuilder    $searchCriteriaBuilder,
         LoggerInterface          $logger,
-        State                     $state,
-         Registry              $registry
-
+        State                    $state,
+        Registry                 $registry
     )
     {
         $this->orderRepository = $orderRepository;
@@ -32,7 +28,6 @@ class Index
         $this->state = $state;
         $this->registry = $registry;
     }
-
     public function execute()
     {
         $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/testing.log');
